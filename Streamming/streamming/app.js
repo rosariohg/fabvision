@@ -3,7 +3,7 @@ var app = new express();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
 
-var Log= require('log'),
+var Log = require('log'),
 log = new Log('debug')
 
 var port = process.env.PORT || 3000;
@@ -14,7 +14,7 @@ app.get('/',function(req,res){
 });
 
 io.on('connection',function(socket){
-
+	
 socket.on('stream',function(image){
 	socket.broadcast.emit('stream',image);
 });
